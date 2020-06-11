@@ -1,0 +1,2 @@
+# orgprob
+Organizacja projektu badawczego
