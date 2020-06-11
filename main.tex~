@@ -1,0 +1,104 @@
+\documentclass[a4paper]{article}
+
+% matematyka
+\usepackage{amsmath, amssymb, graphics, setspace}
+
+% odpowiednie kodowanie
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+
+% dodatkowa czcionka
+\usepackage{times}
+
+% polskie parametry tekstu
+\usepackage[polish]{babel}
+
+% grafika
+\usepackage{graphicx}
+
+% kolory
+\usepackage{xcolor}
+
+% tabele
+\usepackage{dcolumn}
+
+% kodowanie
+% https://en.wikibooks.org/wiki/LaTeX/Source_Code_Listings
+\usepackage{listings}
+\lstset{
+   numbers=left,
+   tabsize=3,
+   numberstyle=\footnotesize,
+   basicstyle=\ttfamily \footnotesize \color{black},
+   breaklines=true,
+   escapeinside={(*@}{@*)}
+ }
+
+
+
+% dodatkowe definicje
+\newcommand{\mathsym}[1]{{}}
+\newcommand{\unicode}[1]{{}}
+
+
+\begin{document}
+
+\title{Prosty raport}
+\author{Michał Ramsza}
+\date{\today}
+\maketitle
+
+
+% --- Wprowadzenie --------------------------
+\section{Osadzanie dowolnych elementów}
+
+W pierwszej kolejności możemy osadzić wykres. Poniżej jest wykres generowanych przez odpowiedni skrypt. Wykres ten będzie się zmieniał w zależności do tego co jest generowane przez odpowiedni skrypt.
+
+\begin{figure}[hbt]
+  \centering
+  \includegraphics[width = .65\textwidth]{./analiza/analiza_1_fig_1}
+  \caption{Zależność ceny od przebiegu}
+\end{figure}
+
+Poniżej proste osadzenie tablicy. 
+
+\input{./analiza/analiza_1_tab_1.tex}
+
+W całym zbiorze średnia cena wynosi \input{./analiza/analiza_1_mean_price.tex} a średni przebieg to \input{./analiza/analiza_1_mean_mileage.tex}. Osoba pisząca tekst nie musi wiedzieć jak zostały policzone powyższe liczby, jak została stworzona zamieszczona tablica oraz jak został wygenerowany wykres. W istotnie w ogólne nie musi wiedzieć jak programować. To powoduje, że można relatywnie łatwo podzielić role w zespole. 
+
+Poniżej wykres stworzony na podstawie innego pliku z danymi. Tutaj został wykorzystany inny język do stworzenie wykresu, który potencjalnie jest trudny do stworzenia w innych językach. 
+
+\begin{figure}[hbt]
+  \centering
+  \includegraphics[width = .65\textwidth]{./analiza/analiza_2_fig_1}
+  \caption{Przykładowy graf z rozkładu Barabasi-Albert}
+\end{figure}
+
+Poniżej została wygenerowana przykładowa funkcja (osadzenie pełnego wzoru)
+\input{./analiza/analiza_3_formula_1.txt}
+oraz została policzona jej pierwsza pochodna, która wynosi (osadzenie części wzoru)
+\[
+  \frac{d f}{d x} = 
+  \input{./analiza/analiza_3_formula_2.txt}
+\]
+
+Kod pierwszego rozwiązania oparty jest o następujące pakiety.
+
+\lstinputlisting[language=R, linerange={1-4}, caption=Wykorzystanie pakiety (zawarte w pliku \lstname)]{./analiza/analiza_1.R}
+
+Fragment tworzący automatycznie tablicę jest przedstawiony poniżej. 
+
+\lstinputlisting[linerange={24-39}, caption=Tworzenie tablicy (zawarte w pliku \lstname)]{./analiza/analiza_1.R}
+
+Kod do tworzenie losowej funkcji i obliczania jej pochodnej jest przedstawiony poniżej. Jak widać jest to bardzo prosty kod w Wolfram Language. 
+
+\lstinputlisting[linerange={3-10}, caption=Tworzenie prostej losowej funkcji (zawarte w pliku \lstname)]{./analiza/analiza_3.wls}
+
+
+
+
+\end{document}
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: t
+%%% End:

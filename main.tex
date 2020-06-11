@@ -1,0 +1,90 @@
+\documentclass[a4paper]{article}
+
+% matematyka
+\usepackage{amsmath, amssymb, graphics, setspace}
+
+% odpowiednie kodowanie
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+
+% dodatkowa czcionka
+\usepackage{times}
+
+% polskie parametry tekstu
+\usepackage[polish]{babel}
+
+% grafika
+\usepackage{graphicx}
+
+% kolory
+\usepackage{xcolor}
+
+% tabele
+\usepackage{dcolumn}
+
+% kodowanie
+% https://en.wikibooks.org/wiki/LaTeX/Source_Code_Listings
+\usepackage{listings}
+\lstset{
+   numbers=left,
+   tabsize=3,
+   numberstyle=\footnotesize,
+   basicstyle=\ttfamily \footnotesize \color{black},
+   breaklines=true,
+   escapeinside={(*@}{@*)}
+ }
+
+
+
+% dodatkowe definicje
+\newcommand{\mathsym}[1]{{}}
+\newcommand{\unicode}[1]{{}}
+
+
+\begin{document}
+
+\title{Raport: Organizacja projektu badawczego}
+\author{Michał Gawryluk}
+\date{\today}
+\maketitle
+
+
+% --- Wprowadzenie --------------------------
+\section{Wprowadzenie}
+
+Celem raportu jest wykorzystanie metod poznanych na przedmiocie "Organizacja projektu badawczego" i ukazanie wszystkich narzędzi git,LaTeX, cmake, języka programistycznego do automatycznego generowania pracy badawczej.
+Do raportu został użyty zbiór danych o przestępczości w USA per stan. R został wybrany, jako główny język programistyczny do analityki.
+
+Wykres populacji z przestępczością o charakterze napaści został zaprezentowany poniżej. Każdy punkt reprezentowany jest przez jeden stan.
+
+\begin{figure}[hbt]
+  \centering
+  \includegraphics[width = .65\textwidth]{./analiza/analiza_mg_fig_1}
+  \caption{Zależność ceny od przebiegu}
+\end{figure}
+
+Całość danych użytych do raportu została zaprezentowana w Tablica 1.
+
+\input{./analiza/analiza_mg_tab_1.tex}
+
+W całym zbiorze średnia liczba napaści wynosi \input{./analiza/analiza_mg_mean_assault.tex} a średni liczba mordersw to \input{./analiza/analiza_mg_mean_murder.tex}.
+ 
+\pagebreak 
+ 
+\section{Kod}
+
+Kod pierwszego rozwiązania oparty jest o następujące pakiety.
+
+\lstinputlisting[language=R, linerange={1-3}, caption=Wykorzystanie pakiety (zawarte w pliku \lstname)]{./analiza/analiza_mg.R}
+
+Fragment tworzący automatyczne wartości. 
+
+\lstinputlisting[linerange={23-36}, caption=Tworzenie tablicy (zawarte w pliku \lstname)]{./analiza/analiza_mg.R}
+
+
+
+\end{document}
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: t
+%%% End:

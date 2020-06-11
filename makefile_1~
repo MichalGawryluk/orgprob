@@ -1,0 +1,7 @@
+all:
+	cd ./analiza && \
+	Rscript analiza_1.R && \
+	wolframscript -file analiza_2.wls && \
+	cd .. && \
+	pdflatex main
+

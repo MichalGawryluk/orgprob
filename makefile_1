@@ -1,0 +1,6 @@
+all:
+	Rscript ./analiza/analiza_mg.R && \
+	Rscript ./analiza/analiza2_mg.R && \
+	pdflatex main
+
+	

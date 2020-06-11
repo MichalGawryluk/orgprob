@@ -1,0 +1,20 @@
+# Ostateczny plik do skompliowania
+all: *.tex *.png
+	pdflatex main
+
+# Targety pośrednie
+*.tex:
+	Rscript ./analiza/analiza_mg.R
+
+.PHONY: *.png
+*.png:
+	Rscript ./analiza/analiza2_mg.R
+
+
+# Czyszczenie z plików pośrednich
+clean:
+	rm -f ./analiza/*.png && \
+	rm -f ./analiza/*.tex
+	
+
+	

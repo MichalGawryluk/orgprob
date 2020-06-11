@@ -1,0 +1,7 @@
+all:
+	Rscript ./analiza/analiza_1.R && \
+	wolframscript -local -file ./analiza/analiza_2.wls && \
+	wolframscript -local -file ./analiza/analiza_3.wls && \
+	pdflatex main
+
+	
