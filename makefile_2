@@ -3,13 +3,13 @@ all: *.tex *.png
 	pdflatex main
 
 # Targety pośrednie
+.PHONY: *.tex
 *.tex:
 	Rscript ./analiza/analiza_mg.R
 
 .PHONY: *.png
 *.png:
 	Rscript ./analiza/analiza2_mg.R
-
 
 # Czyszczenie z plików pośrednich
 clean:
